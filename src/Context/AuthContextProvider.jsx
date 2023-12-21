@@ -2,8 +2,6 @@ import {
    GoogleAuthProvider,
    createUserWithEmailAndPassword,
    onAuthStateChanged,
-   sendEmailVerification,
-   sendPasswordResetEmail,
    signInWithEmailAndPassword,
    signInWithPopup,
    signOut,
@@ -11,13 +9,11 @@ import {
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Configuration/firebase.config";
-import usePublicApiRequest from "../Hooks/API/PublicApi/usePublicApiRequest";
 
 export const AuthContext = createContext(null);
 const AuthContextProvider = ({ children }) => {
    const [user, setUser] = useState(null);
    const [isLoading, setIsLoading] = useState(true);
-   const { generateToken, clearToken, saveUserData } = usePublicApiRequest();
 
    // Auth provider
    const googleAuthProvider = new GoogleAuthProvider();
@@ -40,17 +36,6 @@ const AuthContextProvider = ({ children }) => {
       return updateProfile(auth.currentUser, userInfo);
    };
 
-   // Reset password
-   const resetPassword = (email) => {
-      setIsLoading(true);
-      return sendPasswordResetEmail(auth, email);
-   };
-
-   // Verify email
-   const verifyEmail = () => {
-      return sendEmailVerification(auth.currentUser);
-   };
-
    // Google signIn
    const loginWithGoogle = () => {
       setIsLoading(true);
@@ -68,17 +53,6 @@ const AuthContextProvider = ({ children }) => {
       const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
          setUser(currentUser);
          setIsLoading(false);
-         if (currentUser) {
-            // Save user data to database
-            saveUserData({ email: currentUser?.email, role: "patient" });
-
-            // Server token request
-            generateToken({
-               email: currentUser?.email,
-            });
-         } else {
-            clearToken();
-         }
       });
       return () => {
          unSubscribe();
@@ -89,12 +63,10 @@ const AuthContextProvider = ({ children }) => {
       user,
       logOut,
       isLoading,
-      verifyEmail,
       profileUpdate,
       loginWithGoogle,
       registerWithEmailPassword,
       loginWithEmailPassword,
-      resetPassword,
    };
    return (
       <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

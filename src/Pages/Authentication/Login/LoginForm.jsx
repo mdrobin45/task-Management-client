@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import AuthFormFooter from "../../Components/AuthFormFooter/AuthFormFooter";
-import AuthFormHeader from "../../Components/AuthFormHeader/AuthFormHeader";
-import FormSubmit from "../../Components/InputFields/FormSubmit";
-import GoogleSignIn from "../../Components/InputFields/GoogleSignIn";
-import PasswordField from "../../Components/InputFields/PasswordField";
-import TextField from "../../Components/InputFields/TextField";
+import AuthFormFooter from "../../../Components/AuthFormFooter/AuthFormFooter";
+import AuthFormHeader from "../../../Components/AuthFormHeader/AuthFormHeader";
+import FormSubmit from "../../../Components/InputFields/FormSubmit";
+import GoogleSignIn from "../../../Components/InputFields/GoogleSignIn";
+import PasswordField from "../../../Components/InputFields/PasswordField";
+import TextField from "../../../Components/InputFields/TextField";
 import useLoginAuth from "./ServiceLogic/useLoginAuth";
 
 const LoginForm = () => {

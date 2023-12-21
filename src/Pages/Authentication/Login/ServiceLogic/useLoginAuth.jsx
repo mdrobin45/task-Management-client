@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { AuthContext } from "../../../MyContext/AuthContextProvider";
+import { AuthContext } from "../../../../Context/AuthContextProvider";
 
 const useLoginAuth = () => {
    const { loginWithEmailPassword } = useContext(AuthContext);
