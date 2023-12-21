@@ -1,6 +1,5 @@
 import { Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-import ProfileMenu from "./ProfileMenu";
 
 export function Header() {
    return (
@@ -28,7 +27,7 @@ export function Header() {
                      <Link to="/login">Log In</Link>
                   </Button>
                   {/* ) : ( */}
-                  <ProfileMenu />
+                  {/* <ProfileMenu /> */}
                   {/* )} */}
                </div>
             </div>

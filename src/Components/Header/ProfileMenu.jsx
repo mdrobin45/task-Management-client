@@ -54,14 +54,14 @@ const ProfileMenu = () => {
             <Link to="/my-submission">
                <MenuItem>
                   <Typography as="span" variant="small" className="font-normal">
-                     My Submission
+                     Dashboard
                   </Typography>
                </MenuItem>
             </Link>
             <Link to="/posted-assignment">
                <MenuItem>
                   <Typography as="span" variant="small" className="font-normal">
-                     Posted Assignment
+                     Profile
                   </Typography>
                </MenuItem>
             </Link>
