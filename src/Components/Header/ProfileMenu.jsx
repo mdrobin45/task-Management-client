@@ -51,7 +51,7 @@ const ProfileMenu = () => {
                {user?.displayName}
             </p>
             <hr />
-            <Link to="/my-submission">
+            <Link to="/dashboard">
                <MenuItem>
                   <Typography as="span" variant="small" className="font-normal">
                      Dashboard
