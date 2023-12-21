@@ -58,7 +58,7 @@ const ProfileMenu = () => {
                   </Typography>
                </MenuItem>
             </Link>
-            <Link to="/posted-assignment">
+            <Link to="/profile">
                <MenuItem>
                   <Typography as="span" variant="small" className="font-normal">
                      Profile

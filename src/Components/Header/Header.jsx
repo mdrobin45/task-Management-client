@@ -1,13 +1,14 @@
 import { Button } from "@material-tailwind/react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import ProfileMenu from "./ProfileMenu";
 
 export function Header() {
    const { user } = useContext(AuthContext);
+   const { pathname } = useLocation();
    return (
-      <div className="absolute w-full z-10 mt-6">
+      <div className={`${pathname === "/" ? "absolute" : ""} w-full z-10 mt-6`}>
          <div className="bg-white w-11/12 mx-auto border lg:pl-6 lg:rounded-full mt-4 p-2 z-10">
             <div className="relative mx-auto flex items-center justify-between text-blue-gray-900">
                <div>
