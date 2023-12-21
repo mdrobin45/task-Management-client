@@ -1,6 +1,5 @@
 import { Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-import NavList from "./NavList";
 import ProfileMenu from "./ProfileMenu";
 
 export function Header() {
@@ -15,7 +14,10 @@ export function Header() {
                   </Link>
                </div>
                <div>
-                  <NavList />
+                  {/* <NavList /> */}
+                  <h2 className="text-2xl font-bold">
+                     Welcome to Twinkle Task
+                  </h2>
                </div>
                <div className="flex items-center gap-3">
                   {/* {!user ? ( */}

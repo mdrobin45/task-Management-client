@@ -9,18 +9,13 @@ const NavList = () => {
             </NavLink>
          </li>
          <li>
-            <NavLink className="text-gray-900" to="/assignments">
-               Assignments
+            <NavLink className="text-gray-900" to="/dashboard">
+               Dashboard
             </NavLink>
          </li>
          <li>
-            <NavLink className="text-gray-900" to="/create-assignment">
-               Create Assignment
-            </NavLink>
-         </li>
-         <li>
-            <NavLink className="text-gray-900" to="/submitted-assignments">
-               Submitted Assignments
+            <NavLink className="text-gray-900" to="/profile">
+               Profile
             </NavLink>
          </li>
       </ul>

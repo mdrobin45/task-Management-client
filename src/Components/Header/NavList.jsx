@@ -8,13 +8,10 @@ const NavList = () => {
             <NavLink to="/">Home</NavLink>
          </li>
          <li>
-            <NavLink to="/assignments">Assignments</NavLink>
+            <NavLink to="/dashboard">Dashboard</NavLink>
          </li>
          <li>
-            <NavLink to="/create-assignment">Create Assignment</NavLink>
-         </li>
-         <li>
-            <NavLink to="/submitted-assignments">Submitted Assignments</NavLink>
+            <NavLink to="/profile">Profile</NavLink>
          </li>
       </ul>
    );
