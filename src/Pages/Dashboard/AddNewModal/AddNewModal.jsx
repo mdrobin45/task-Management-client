@@ -8,14 +8,31 @@ import {
    Textarea,
    Typography,
 } from "@material-tailwind/react";
-import { useForm } from "react-hook-form";
+import moment from "moment";
+import DatePicker from "react-datepicker";
+import { Controller, useForm } from "react-hook-form";
+import { createNewTask } from "../../../API_Request/ApiRequest";
+import { showToast } from "../../../Utils/toast";
+import "./style.css";
 
-const AddNewModal = ({ open, handleOpen }) => {
-   const { register, handleSubmit } = useForm();
-
+const AddNewModal = ({ open, handleOpen, refetch }) => {
+   const { control, register, handleSubmit } = useForm();
    // Form submit
    const onSubmit = (data) => {
-      console.log(data);
+      const date = moment(data.dueDate).format("DD MMMM YYYY");
+      const task = {
+         title: data.title,
+         description: data.description,
+         dueDate: date,
+         priority: data.priority,
+      };
+
+      createNewTask(task).then((res) => {
+         if (res.id) {
+            refetch();
+            showToast("Task Added", "success");
+         }
+      });
    };
    return (
       <div>
@@ -31,21 +48,35 @@ const AddNewModal = ({ open, handleOpen }) => {
                         Add New Task
                      </Typography>
 
-                     <Input {...register("Title")} label="Title" />
+                     <Input {...register("title")} label="Title" />
                      <div className="mt-3">
                         <Textarea
-                           {...register("Description")}
+                           {...register("description")}
                            label="Description"
                         />
                      </div>
                      <div className="mt-2">
                         <select
                            className="w-full p-2 border border-gray-400 rounded-md"
-                           {...register("Priority")}>
+                           {...register("priority")}>
                            <option value="Low">Low</option>
                            <option value="Medium">Medium</option>
                            <option value="High">High</option>
                         </select>
+                     </div>
+                     <div id="taskDatePick" className="mt-2 w-full">
+                        <Controller
+                           control={control}
+                           name="dueDate"
+                           render={({ field }) => (
+                              <DatePicker
+                                 placeholderText="Due Date"
+                                 className="w-full border border-gray-400 rounded-md p-2"
+                                 selected={field.value}
+                                 onChange={(date) => field.onChange(date)}
+                              />
+                           )}
+                        />
                      </div>
                   </CardBody>
                   <CardFooter className="pt-0">
