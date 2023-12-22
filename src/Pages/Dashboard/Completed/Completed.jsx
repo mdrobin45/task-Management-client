@@ -2,7 +2,7 @@ import { Card, CardBody, Typography } from "@material-tailwind/react";
 
 const Completed = () => {
    return (
-      <div className="border w-1/3 p-4 shadow-md  rounded-xl h-[80vh] overflow-x-scroll">
+      <div className="border w-full lg:w-1/3 p-4 shadow-md  rounded-xl h-[80vh] overflow-x-scroll">
          <h2 className="text-2xl font-bold">Completed</h2>
          {/* <div className="bg-blue-500 w-full h-1 z-10"></div> */}
          <Card className="mt-6 border">

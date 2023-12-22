@@ -6,7 +6,7 @@ import Todo from "./Todo/Todo";
 const Dashboard = () => {
    return (
       <Container>
-         <div className="flex justify-around mt-6 gap-4">
+         <div className="flex flex-col lg:flex-row justify-around mt-6 gap-4">
             <Todo />
             <Ongoing />
             <Completed />

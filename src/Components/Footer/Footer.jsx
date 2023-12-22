@@ -14,10 +14,10 @@ const Footer = () => {
             <div className="sm:flex sm:items-center sm:justify-between">
                <Link
                   to="/"
-                  className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                  <img src={logo} className="w-40" alt="Flowbite Logo" />
+                  className="flex justify-center items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                  <img src={logo} className="w-40" alt=" Logo" />
                </Link>
-               <ul className="flex flex-wrap gap-x-3 items-center mb-6 text-sm font-medium text-gray-900 sm:mb-0 dark:text-gray-400">
+               <ul className="flex justify-center flex-wrap gap-x-3 items-center mb-6 text-sm font-medium text-gray-900 sm:mb-0 dark:text-gray-400">
                   <li>
                      <a
                         href="#"

@@ -46,7 +46,7 @@ const Todo = () => {
 
    todoList = todoList.toReversed();
    return (
-      <div className="border w-1/3 p-4 shadow-md rounded-xl h-[80vh] overflow-x-scroll">
+      <div className="border w-full lg:w-1/3 p-4 shadow-md rounded-xl h-[80vh] overflow-x-scroll">
          <div className="flex items-center gap-3">
             <h2 className="text-2xl font-bold">To Do</h2>
             <Button onClick={handleOpen} className="py-2 bg-primary">

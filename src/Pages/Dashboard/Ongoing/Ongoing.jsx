@@ -2,7 +2,7 @@ import { Card, CardBody, Typography } from "@material-tailwind/react";
 
 const Ongoing = () => {
    return (
-      <div className="border p-4 w-1/3 shadow-md  rounded-xl h-[80vh] overflow-x-scroll">
+      <div className="border p-4 w-full lg:w-1/3 shadow-md  rounded-xl h-[80vh] overflow-x-scroll">
          <h2 className="text-2xl font-bold">Ongoing</h2>
          <Card className="mt-6 border">
             <CardBody>

@@ -19,7 +19,9 @@ export function Header() {
                </div>
                <div>
                   {/* <NavList /> */}
-                  <h2 className="text-2xl font-bold">Welcome to Pro Task</h2>
+                  <h2 className="md:text-2xl text-xl font-bold">
+                     Welcome to Pro Task
+                  </h2>
                </div>
                <div className="flex items-center gap-3">
                   {!user ? (
