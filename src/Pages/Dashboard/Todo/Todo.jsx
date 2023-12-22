@@ -73,7 +73,7 @@ const Todo = () => {
                         <span className="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
                            {todo.priority}
                         </span>
-                        <div className="mt-4">
+                        <div className="mt-4 flex gap-3">
                            <Button
                               onClick={() => {
                                  handleDelete(todo._id);
@@ -81,6 +81,7 @@ const Todo = () => {
                               className="bg-red-600 py-2">
                               Delete
                            </Button>
+                           <Button className="bg-primary py-2">Edit</Button>
                         </div>
                      </CardBody>
                   </Card>
