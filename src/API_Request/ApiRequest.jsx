@@ -16,3 +16,11 @@ export const getAllTask = async (email) => {
    );
    return data;
 };
+
+// Delete task
+export const deleteTask = async (id) => {
+   const { data } = await axios.delete(
+      `${import.meta.env.VITE_SERVER_API}/task/${id}`
+   );
+   return data;
+};

@@ -1,18 +1,48 @@
 import { Button, Card, CardBody, Typography } from "@material-tailwind/react";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
-import { getAllTask } from "../../../API_Request/ApiRequest";
+import { useContext, useState } from "react";
+import Swal from "sweetalert2";
+import { deleteTask, getAllTask } from "../../../API_Request/ApiRequest";
+import { AuthContext } from "../../../Context/AuthContextProvider";
+import noTaskImage from "../../../assets/images/notask.jpg";
 import AddNewModal from "../AddNewModal/AddNewModal";
 
 const Todo = () => {
    const [open, setOpen] = useState(false);
    const handleOpen = () => setOpen((cur) => !cur);
+   const { user } = useContext(AuthContext);
 
    // Tan stack query for get tasks
    let { data: todoList = [], refetch } = useQuery({
       queryKey: ["todoTask"],
-      queryFn: () => getAllTask(),
+      queryFn: () => getAllTask(user?.email),
    });
+
+   // Handle delete task
+   const handleDelete = (id) => {
+      Swal.fire({
+         title: "Are you sure?",
+         text: "You won't be able to revert this!",
+         icon: "warning",
+         showCancelButton: true,
+         confirmButtonColor: "#3085d6",
+         cancelButtonColor: "#d33",
+         confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+         if (result.isConfirmed) {
+            deleteTask(id).then((res) => {
+               if (res.id) {
+                  refetch();
+                  Swal.fire({
+                     title: "Deleted!",
+                     text: "Your file has been deleted.",
+                     icon: "success",
+                  });
+               }
+            });
+         }
+      });
+   };
 
    todoList = todoList.toReversed();
    return (
@@ -43,13 +73,22 @@ const Todo = () => {
                         <span className="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
                            {todo.priority}
                         </span>
+                        <div className="mt-4">
+                           <Button
+                              onClick={() => {
+                                 handleDelete(todo._id);
+                              }}
+                              className="bg-red-600 py-2">
+                              Delete
+                           </Button>
+                        </div>
                      </CardBody>
                   </Card>
                ))}
             </>
          ) : (
             <>
-               <h2>Noting</h2>
+               <img className="mx-auto" src={noTaskImage} alt="Empty" />
             </>
          )}
 
