@@ -46,14 +46,6 @@ const AddNewModal = ({ open, handleOpen }) => {
                            <option value="Medium">Medium</option>
                            <option value="High">High</option>
                         </select>
-                        {/* <Select
-                           name="Priority"
-                           {...register("Req")}
-                           label="Priority">
-                           <Option value="Low">Low</Option>
-                           <Option value="Medium">Medium</Option>
-                           <Option value="High">High</Option>
-                        </Select> */}
                      </div>
                   </CardBody>
                   <CardFooter className="pt-0">
