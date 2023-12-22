@@ -2,6 +2,7 @@ import { Button } from "@material-tailwind/react";
 import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContextProvider";
+import logo from "../../assets/images/logo.svg";
 import ProfileMenu from "./ProfileMenu";
 
 export function Header() {
@@ -13,15 +14,12 @@ export function Header() {
             <div className="relative mx-auto flex items-center justify-between text-blue-gray-900">
                <div>
                   <Link to="/">
-                     {/* <img className="w-40" src={logo} alt="Logo" /> */}
-                     Robin
+                     <img className="w-40" src={logo} alt="Logo" />
                   </Link>
                </div>
                <div>
                   {/* <NavList /> */}
-                  <h2 className="text-2xl font-bold">
-                     Welcome to Twinkle Task
-                  </h2>
+                  <h2 className="text-2xl font-bold">Welcome to Pro Task</h2>
                </div>
                <div className="flex items-center gap-3">
                   {!user ? (

@@ -9,14 +9,18 @@ import {
    Typography,
 } from "@material-tailwind/react";
 import moment from "moment";
+import { useContext } from "react";
 import DatePicker from "react-datepicker";
 import { Controller, useForm } from "react-hook-form";
 import { createNewTask } from "../../../API_Request/ApiRequest";
+import { AuthContext } from "../../../Context/AuthContextProvider";
 import { showToast } from "../../../Utils/toast";
 import "./style.css";
 
 const AddNewModal = ({ open, handleOpen, refetch }) => {
    const { control, register, handleSubmit } = useForm();
+   const { user } = useContext(AuthContext);
+
    // Form submit
    const onSubmit = (data) => {
       const date = moment(data.dueDate).format("DD MMMM YYYY");
@@ -25,6 +29,7 @@ const AddNewModal = ({ open, handleOpen, refetch }) => {
          description: data.description,
          dueDate: date,
          priority: data.priority,
+         email: user?.email,
       };
 
       createNewTask(task).then((res) => {

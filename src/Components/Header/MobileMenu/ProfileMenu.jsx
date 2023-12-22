@@ -9,16 +9,18 @@ import {
 } from "@material-tailwind/react";
 import { useState } from "react";
 import { BiChevronDown } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAuth from "../../../Hooks/useAuth";
 
 const ProfileMenu = () => {
    const [isMenuOpen, setIsMenuOpen] = useState(false);
    const { user, logOut } = useAuth();
+   const navigate = useNavigate();
    // Sign Out
    const handleLogOut = () => {
       logOut().then(() => {
+         navigate("/");
          toast.error("Your are logged out!");
       });
    };

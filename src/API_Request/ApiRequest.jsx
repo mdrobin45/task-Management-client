@@ -10,7 +10,9 @@ export const createNewTask = async (task) => {
 };
 
 // Get all task
-export const getAllTask = async () => {
-   const { data } = await axios.get(`${import.meta.env.VITE_SERVER_API}/task`);
+export const getAllTask = async (email) => {
+   const { data } = await axios.get(
+      `${import.meta.env.VITE_SERVER_API}/task?email=${email}`
+   );
    return data;
 };

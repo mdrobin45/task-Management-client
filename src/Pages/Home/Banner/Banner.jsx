@@ -16,8 +16,8 @@ const Banner = () => {
          </h2>
          <div className="mt-10">
             <Link
-               to="/assignments"
-               className="bg-blue-500 px-10 mt-6 py-4 hover:bg-blue-700 text-white rounded">
+               to="/dashboard"
+               className="bg-secondary px-10 mt-6 py-4 hover:bg-secondary text-white rounded">
                Let’s Explore
             </Link>
          </div>
